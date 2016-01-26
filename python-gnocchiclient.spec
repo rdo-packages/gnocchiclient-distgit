@@ -1,8 +1,10 @@
 %global pypi_name gnocchiclient
 
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+
 Name:             python-gnocchiclient
-Version:          2.0.0
-Release:          1%{?dist}
+Version:          XXX
+Release:          XXX
 Summary:          Python API and CLI for OpenStack Gnocchi
 
 License:          ASL 2.0
@@ -45,7 +47,7 @@ This package contains auto-generated documentation.
 
 
 %prep
-%setup -q -n %{pypi_name}-%{version}
+%setup -q -n %{pypi_name}-%{upstream_version}
 
 # Remove bundled egg-info
 rm -rf gnocchiclient.egg-info
@@ -76,8 +78,3 @@ rm -rf html/.doctrees html/.buildinfo
 %doc html
 
 %changelog
-* Mon Nov 09 2015 Pradeep Kilambi pkilambi@redhat.com> 2.0.0
-- update to 2.0
-
-* Wed Oct 07 2015 Pradeep Kilambi <pkilambi@redhat.com> 1.0.0
-- Initial package based on python-gnocchiclient.
