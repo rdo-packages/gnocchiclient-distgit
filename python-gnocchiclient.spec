@@ -2,7 +2,7 @@
 
 Name:             python-gnocchiclient
 Version:          2.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          Python API and CLI for OpenStack Gnocchi
 
 License:          ASL 2.0
@@ -76,6 +76,9 @@ rm -rf html/.doctrees html/.buildinfo
 %doc html
 
 %changelog
+* Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 2.0.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
+
 * Mon Nov 09 2015 Pradeep Kilambi pkilambi@redhat.com> 2.0.0
 - update to 2.0
 
