@@ -3,13 +3,13 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:             python-gnocchiclient
-Version:          XXX
-Release:          XXX
+Version:          2.2.0
+Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Gnocchi
 
 License:          ASL 2.0
 URL:              https://github.com/openstack/%{name}
-Source0:          https://pypi.python.org/packages/source/g/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Source0:          https://pypi.python.org/packages/source/g/%{pypi_name}/%{pypi_name}-%{version}%{?milestone}.tar.gz
 
 BuildArch:        noarch
 BuildRequires:    python-setuptools
@@ -78,3 +78,5 @@ rm -rf html/.doctrees html/.buildinfo
 %doc html
 
 %changelog
+* Wed Mar 23 2016 RDO <rdo-list@redhat.com> 2.2.0-0.1
+-  Rebuild for Mitaka 
