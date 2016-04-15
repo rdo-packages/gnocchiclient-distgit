@@ -1,13 +1,15 @@
 %global pypi_name gnocchiclient
 
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+
 Name:             python-gnocchiclient
-Version:          2.0.0
-Release:          2%{?dist}
+Version:          2.2.0
+Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Gnocchi
 
 License:          ASL 2.0
 URL:              https://github.com/openstack/%{name}
-Source0:          https://pypi.python.org/packages/source/g/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Source0:          https://pypi.python.org/packages/source/g/%{pypi_name}/%{pypi_name}-%{version}%{?milestone}.tar.gz
 
 BuildArch:        noarch
 BuildRequires:    python-setuptools
@@ -45,7 +47,7 @@ This package contains auto-generated documentation.
 
 
 %prep
-%setup -q -n %{pypi_name}-%{version}
+%setup -q -n %{pypi_name}-%{upstream_version}
 
 # Remove bundled egg-info
 rm -rf gnocchiclient.egg-info
@@ -76,11 +78,5 @@ rm -rf html/.doctrees html/.buildinfo
 %doc html
 
 %changelog
-* Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 2.0.0-2
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
-
-* Mon Nov 09 2015 Pradeep Kilambi pkilambi@redhat.com> 2.0.0
-- update to 2.0
-
-* Wed Oct 07 2015 Pradeep Kilambi <pkilambi@redhat.com> 1.0.0
-- Initial package based on python-gnocchiclient.
+* Wed Mar 23 2016 RDO <rdo-list@redhat.com> 2.2.0-0.1
+-  Rebuild for Mitaka 
