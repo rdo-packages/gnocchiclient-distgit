@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a0b7d60_7209362c",
+        "filename": "python-gnocchiclient.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2016-06-21T10:47:58Z",
+      "side": 1,
+      "message": "This is creating a symlink between gnocchi-3 and python3-gnocchiclient, which does not exist. It should be python3-gnocchi",
+      "range": {
+        "startLine": 152,
+        "startChar": 3,
+        "endLine": 152,
+        "endChar": 34
+      },
+      "revId": "302278e871fe4d9676fe45d99e651c66490d81cd",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
