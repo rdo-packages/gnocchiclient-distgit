@@ -16,6 +16,20 @@ BuildRequires:    python-setuptools
 BuildRequires:    python2-devel
 BuildRequires:    python-pbr
 
+# testing requirements
+BuildRequires:    python-tempest-lib
+BuildRequires:    python-testrepository
+
+# requirements.
+BuildRequires:    python-babel >= 1.3
+BuildRequires:    python-cliff >= 1.14.0
+BuildRequires:    python-oslo-i18n >= 1.5.0
+BuildRequires:    python-oslo-serialization >= 1.4.0
+BuildRequires:    python-oslo-utils >= 2.0.0
+BuildRequires:    python-keystoneauth1 >= 1.0.0
+BuildRequires:    python-six >= 1.9.0
+BuildRequires:    python-futurist
+
 Requires:         python-babel >= 1.3
 Requires:         python-cliff >= 1.14.0
 Requires:         python-oslo-i18n >= 1.5.0
@@ -66,6 +80,9 @@ sphinx-build -b html doc/source html
 
 # Fix hidden-file-or-dir warnings
 rm -rf html/.doctrees html/.buildinfo
+
+%check
+%{__python2} setup.py testr
 
 %files
 %doc README.rst
