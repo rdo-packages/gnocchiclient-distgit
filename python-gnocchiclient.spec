@@ -67,6 +67,9 @@ sphinx-build -b html doc/source html
 # Fix hidden-file-or-dir warnings
 rm -rf html/.doctrees html/.buildinfo
 
+%check
+%{__python2} setup.py testr
+
 %files
 %doc README.rst
 %license LICENSE
