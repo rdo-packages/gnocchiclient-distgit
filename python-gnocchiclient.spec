@@ -16,6 +16,9 @@ BuildRequires:    python-setuptools
 BuildRequires:    python2-devel
 BuildRequires:    python-pbr
 
+# testing requirements
+BuildRequires:    python-testrepository
+
 Requires:         python-babel >= 1.3
 Requires:         python-cliff >= 1.14.0
 Requires:         python-oslo-i18n >= 1.5.0
@@ -66,6 +69,9 @@ sphinx-build -b html doc/source html
 
 # Fix hidden-file-or-dir warnings
 rm -rf html/.doctrees html/.buildinfo
+
+%check
+%{__python2} setup.py testr
 
 %files
 %doc README.rst
