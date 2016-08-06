@@ -33,6 +33,7 @@ BuildRequires:    python-tools
 
 Requires:         python-babel >= 1.3
 Requires:         python-cliff >= 1.14.0
+Requires:         python-osc-lib >= 0.3.0
 Requires:         python-oslo-i18n >= 1.5.0
 Requires:         python-oslo-serialization >= 1.4.0
 Requires:         python-oslo-utils >= 2.0.0
@@ -81,6 +82,7 @@ BuildRequires:    python3-tools
 
 Requires:         python3-babel >= 1.3
 Requires:         python3-cliff >= 1.14.0
+Requires:         python3-osc-lib >= 0.3.0
 Requires:         python3-oslo-i18n >= 1.5.0
 Requires:         python3-oslo-serialization >= 1.4.0
 Requires:         python3-oslo-utils >= 2.0.0
