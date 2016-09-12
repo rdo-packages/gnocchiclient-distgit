@@ -16,7 +16,7 @@ Summary:          Python API and CLI for OpenStack Gnocchi
 
 License:          ASL 2.0
 URL:              https://github.com/openstack/%{name}
-Source0:          https://pypi.python.org/packages/source/g/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Source0:          https://pypi.io/packages/source/g/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 
 BuildArch:        noarch
 
