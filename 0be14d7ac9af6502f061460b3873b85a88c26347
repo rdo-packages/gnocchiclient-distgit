@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "facab960_a281734c",
+        "filename": "python-gnocchiclient.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-09-13T21:37:55Z",
+      "side": 1,
+      "message": "Should be http://tarballs.openstack.org/python-gnocchiclient/\nabove expands to /gnocchiclient/",
+      "revId": "0be14d7ac9af6502f061460b3873b85a88c26347",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
