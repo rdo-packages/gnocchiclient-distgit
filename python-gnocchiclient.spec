@@ -10,7 +10,7 @@
 %endif
 
 Name:             python-gnocchiclient
-Version:          2.5.0
+Version:          2.6.0
 Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Gnocchi
 
@@ -196,6 +196,9 @@ rm -rf html/.doctrees html/.buildinfo
 %doc html
 
 %changelog
+* Thu Sep 22 2016 Mehdi Abaakouk <sileht@redhat.com> 2.6.0-1
+- Update to 2.6.0
+
 * Mon Sep 12 2016 Haikel Guemar <hguemar@fedoraproject.org> 2.5.0-1
 - Update to 2.5.0
 
