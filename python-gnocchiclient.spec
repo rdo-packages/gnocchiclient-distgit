@@ -31,13 +31,11 @@ BuildRequires:    python2-devel
 BuildRequires:    python-pbr
 BuildRequires:    python-tools
 
-Requires:         python-babel >= 1.3
-Requires:         python-cliff >= 1.14.0
+Requires:         python-cliff >= 1.16.0
 Requires:         python-osc-lib >= 0.3.0
-Requires:         python-oslo-i18n >= 1.5.0
 Requires:         python-oslo-serialization >= 1.4.0
 Requires:         python-oslo-utils >= 2.0.0
-Requires:         python-keystoneauth1 >= 1.0.0
+Requires:         python-keystoneauth1 >= 2.0.0
 Requires:         python-six >= 1.9.0
 Requires:         python-futurist
 
@@ -53,6 +51,16 @@ Group:            Documentation
 
 BuildRequires:    python-sphinx
 BuildRequires:    python-oslo-sphinx
+BuildRequires:    python-openstack-doc-tools
+BuildRequires:    python-cliff
+BuildRequires:    python-osc-lib
+BuildRequires:    python-oslo-serialization
+BuildRequires:    python-oslo-utils
+BuildRequires:    python-keystoneauth1
+BuildRequires:    python-six
+BuildRequires:    python-futurist
+# test
+BuildRequires:    python-babel
 
 %description      doc
 This is a client library for Gnocchi built on the Gnocchi API. It
@@ -80,13 +88,11 @@ BuildRequires:    python3-pbr
 BuildRequires:    python3-setuptools
 BuildRequires:    python3-tools
 
-Requires:         python3-babel >= 1.3
-Requires:         python3-cliff >= 1.14.0
+Requires:         python3-cliff >= 1.16.0
 Requires:         python3-osc-lib >= 0.3.0
-Requires:         python3-oslo-i18n >= 1.5.0
 Requires:         python3-oslo-serialization >= 1.4.0
 Requires:         python3-oslo-utils >= 2.0.0
-Requires:         python3-keystoneauth1 >= 1.0.0
+Requires:         python3-keystoneauth1 >= 2.0.0
 Requires:         python3-six >= 1.9.0
 Requires:         python3-futurist
 
@@ -156,11 +162,14 @@ done
 %endif
 popd
 
-export PYTHONPATH="$( pwd ):$PYTHONPATH"
-sphinx-build -b html doc/source html
+# Some env variables required to successfully build our doc
+export PATH=$PATH:%{buildroot}%{_bindir}
+export PYTHONPATH=.
+export LANG=en_US.utf8
+python setup.py build_sphinx
 
 # Fix hidden-file-or-dir warnings
-rm -rf html/.doctrees html/.buildinfo
+rm -rf doc/build/html/.doctrees doc/build/html/.buildinfo
 
 %files -n python2-%{pypi_name}
 %doc README.rst
@@ -193,6 +202,6 @@ rm -rf html/.doctrees html/.buildinfo
 %endif
 
 %files -n python-%{pypi_name}-doc
-%doc html
+%doc doc/build/html
 
 %changelog
