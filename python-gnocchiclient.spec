@@ -31,10 +31,8 @@ BuildRequires:    python2-devel
 BuildRequires:    python-pbr
 BuildRequires:    python-tools
 
-Requires:         python-babel >= 1.3
-Requires:         python-cliff >= 1.14.0
+Requires:         python-cliff >= 1.16.0
 Requires:         python-osc-lib >= 0.3.0
-Requires:         python-oslo-i18n >= 1.5.0
 Requires:         python-oslo-serialization >= 1.4.0
 Requires:         python-oslo-utils >= 2.0.0
 Requires:         python-keystoneauth1 >= 1.0.0
@@ -53,6 +51,7 @@ Group:            Documentation
 
 BuildRequires:    python-sphinx
 BuildRequires:    python-oslo-sphinx
+BuildRequires:    python-openstack-doc-tools
 
 %description      doc
 This is a client library for Gnocchi built on the Gnocchi API. It
@@ -80,10 +79,8 @@ BuildRequires:    python3-pbr
 BuildRequires:    python3-setuptools
 BuildRequires:    python3-tools
 
-Requires:         python3-babel >= 1.3
-Requires:         python3-cliff >= 1.14.0
+Requires:         python3-cliff >= 1.16.0
 Requires:         python3-osc-lib >= 0.3.0
-Requires:         python3-oslo-i18n >= 1.5.0
 Requires:         python3-oslo-serialization >= 1.4.0
 Requires:         python3-oslo-utils >= 2.0.0
 Requires:         python3-keystoneauth1 >= 1.0.0
