@@ -10,7 +10,7 @@
 %endif
 
 Name:             python-gnocchiclient
-Version:          3.0.0
+Version:          3.1.0
 Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Gnocchi
 
@@ -205,6 +205,9 @@ rm -rf doc/build/html/.doctrees doc/build/html/.buildinfo
 %doc doc/build/html
 
 %changelog
+* Tuw Mar 21 2017 Pradeep Kilambi <pkilambi@redhat.com> 3.1.0-1
+- Update to 3.1.0
+
 * Wed Feb 08 2017 Alfredo Moralejo <amoralej@redhat.com> 3.0.0-1
 - Update to 3.0.0
 
