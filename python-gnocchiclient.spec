@@ -59,6 +59,7 @@ BuildRequires:    python-oslo-utils
 BuildRequires:    python-keystoneauth1
 BuildRequires:    python-six
 BuildRequires:    python-futurist
+BuildRequires:    python-sphinx_rtd_theme
 # test
 BuildRequires:    python-babel
 
