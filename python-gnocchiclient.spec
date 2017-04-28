@@ -206,3 +206,4 @@ rm -rf doc/build/html/.doctrees doc/build/html/.buildinfo
 %doc doc/build/html
 
 %changelog
+# REMOVEME: error caused by commit https://github.com/openstack/python-gnocchiclient/commit/b64069d5987eb99bea0d9955dfce8fbd6ef0783d
