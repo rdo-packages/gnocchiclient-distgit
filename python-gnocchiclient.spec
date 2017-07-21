@@ -38,6 +38,7 @@ Requires:         python-oslo-utils >= 2.0.0
 Requires:         python-keystoneauth1 >= 2.0.0
 Requires:         python-six >= 1.9.0
 Requires:         python-futurist
+Requires:         python-ujson
 
 
 %description -n python2-%{pypi_name}
@@ -59,6 +60,7 @@ BuildRequires:    python-oslo-utils
 BuildRequires:    python-keystoneauth1
 BuildRequires:    python-six
 BuildRequires:    python-futurist
+BuildRequires:    python-ujson
 BuildRequires:    python-sphinx_rtd_theme
 # test
 BuildRequires:    python-babel
