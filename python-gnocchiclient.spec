@@ -165,14 +165,10 @@ done
 %endif
 popd
 
-# Some env variables required to successfully build our doc
-export PATH=$PATH:%{buildroot}%{_bindir}
-export PYTHONPATH=.
-export LANG=en_US.utf8
-python setup.py build_sphinx
-
-# Fix hidden-file-or-dir warnings
+%if 0%{?with_doc}
+%{__python2} setup.py build_sphinx -b html
 rm -rf doc/build/html/.doctrees doc/build/html/.buildinfo
+%endif
 
 %files -n python2-%{pypi_name}
 %doc README.rst
