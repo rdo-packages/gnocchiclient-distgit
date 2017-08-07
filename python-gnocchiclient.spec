@@ -167,7 +167,6 @@ popd
 
 # Some env variables required to successfully build our doc
 export PATH=$PATH:%{buildroot}%{_bindir}
-export PYTHONPATH=.
 export LANG=en_US.utf8
 python setup.py build_sphinx
 
