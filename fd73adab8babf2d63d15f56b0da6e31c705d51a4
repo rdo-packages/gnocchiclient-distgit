@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a890539_19a70e51",
+        "filename": "python-gnocchiclient.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-08T14:35:07Z",
+      "side": 1,
+      "message": "I thing you need to keep:\n\nexport PATH\u003d$PATH:%{buildroot}%{_bindir}",
+      "revId": "fd73adab8babf2d63d15f56b0da6e31c705d51a4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
