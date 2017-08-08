@@ -16,6 +16,24 @@
       "revId": "fd73adab8babf2d63d15f56b0da6e31c705d51a4",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a890539_99721ee4",
+        "filename": "python-gnocchiclient.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 424
+      },
+      "writtenOn": "2017-08-08T14:41:34Z",
+      "side": 1,
+      "message": "Yes, looks like it from the logs, thanks.",
+      "parentUuid": "5a890539_19a70e51",
+      "revId": "fd73adab8babf2d63d15f56b0da6e31c705d51a4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
