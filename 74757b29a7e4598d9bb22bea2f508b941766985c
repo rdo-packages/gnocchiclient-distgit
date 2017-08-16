@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a890539_f56eba95",
+        "filename": "python-gnocchiclient.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-16T14:50:45Z",
+      "side": 0,
+      "message": "Althoug osc-lib is optional requirement needed only when it is used via openstackclient osc plugin, given that we are packaging gnocchiclient mainly to be used in openstack deployments, let\u0027s keep python-osc-lib as Requires.",
+      "range": {
+        "startLine": 35,
+        "startChar": 18,
+        "endLine": 35,
+        "endChar": 32
+      },
+      "revId": "74757b29a7e4598d9bb22bea2f508b941766985c",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
