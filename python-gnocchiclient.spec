@@ -10,8 +10,8 @@
 %endif
 
 Name:             python-gnocchiclient
-Version:          XXX
-Release:          XXX
+Version:          3.3.1
+Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Gnocchi
 
 License:          ASL 2.0
@@ -208,3 +208,6 @@ rm -rf doc/build/html/.doctrees doc/build/html/.buildinfo
 %doc doc/build/html
 
 %changelog
+* Mon Aug 21 2017 Alfredo Moralejo <amoralej@redhat.com> 3.3.1-1
+- Update to 3.3.1
+
