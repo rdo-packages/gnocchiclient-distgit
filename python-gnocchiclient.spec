@@ -91,6 +91,7 @@ BuildRequires:    python3-devel
 BuildRequires:    python3-pbr
 BuildRequires:    python3-setuptools
 BuildRequires:    python3-tools
+BuildRequires:    openstack-macros
 
 Requires:         python3-cliff >= 1.16.0
 Requires:         python3-osc-lib >= 1.7.0
@@ -132,7 +133,7 @@ cp -a . %{py3dir}
 rm -rf gnocchiclient.egg-info
 
 # Let RPM handle the requirements
-rm -f {,test-}requirements.txt
+%py_req_cleanup
 
 %build
 %py2_build
