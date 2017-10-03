@@ -9,6 +9,10 @@
 %global with_python3 1
 %endif
 
+%global common_desc \
+This is a client library for Gnocchi built on the Gnocchi API. It \
+provides a Python API (the gnocchiclient module) and a command-line tool.
+
 Name:             python-gnocchiclient
 Version:          XXX
 Release:          XXX
@@ -43,8 +47,7 @@ Requires:         python-iso8601
 
 
 %description -n python2-%{pypi_name}
-This is a client library for Gnocchi built on the Gnocchi API. It
-provides a Python API (the gnocchiclient module) and a command-line tool.
+%{common_desc}
 
 
 %package -n python-%{pypi_name}-doc
@@ -75,8 +78,7 @@ Summary:          Python API and CLI for OpenStack Gnocchi Tests
 Requires:         python-%{pypi_name} = %{version}-%{release}
 
 %description -n python2-%{pypi_name}-tests
-This is a client library for Gnocchi built on the Gnocchi API. It
-provides a Python API (the gnocchiclient module) and a command-line tool.
+%{common_desc}
 
 %if 0%{?with_python3}
 %package -n python3-%{pypi_name}
@@ -100,22 +102,19 @@ Requires:         python3-monotonic
 Requires:         python3-iso8601
 
 %description -n python3-%{pypi_name}
-This is a client library for Gnocchi built on the Gnocchi API. It
-provides a Python API (the gnocchiclient module) and a command-line tool.
+%{common_desc}
 
 %package -n python3-%{pypi_name}-tests
 Summary:          Python API and CLI for OpenStack Gnocchi Tests
 Requires:         python3-%{pypi_name} = %{version}-%{release}
 
 %description -n python3-%{pypi_name}-tests
-This is a client library for Gnocchi built on the Gnocchi API. It
-provides a Python API (the gnocchiclient module) and a command-line tool.
+%{common_desc}
 
 %endif
 
 %description
-This is a client library for Gnocchi built on the Gnocchi API. It
-provides a Python API (the gnocchiclient module) and a command-line tool.
+%{common_desc}
 
 
 %prep
