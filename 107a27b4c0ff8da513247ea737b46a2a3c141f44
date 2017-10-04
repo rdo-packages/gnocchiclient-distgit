@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa81d914_51e243d6",
+        "filename": "python-gnocchiclient.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 424
+      },
+      "writtenOn": "2017-10-04T10:41:29Z",
+      "side": 1,
+      "message": "this shouldn\u0027t be here.",
+      "range": {
+        "startLine": 71,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 10
+      },
+      "revId": "107a27b4c0ff8da513247ea737b46a2a3c141f44",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa81d914_71e747e5",
+        "filename": "python-gnocchiclient.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 424
+      },
+      "writtenOn": "2017-10-04T10:41:29Z",
+      "side": 1,
+      "message": "needs a separate tests global as per Jatan\u0027s comment",
+      "revId": "107a27b4c0ff8da513247ea737b46a2a3c141f44",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
