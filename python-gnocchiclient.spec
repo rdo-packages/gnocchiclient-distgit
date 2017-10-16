@@ -62,6 +62,8 @@ BuildRequires:    python-ujson
 BuildRequires:    python-sphinx_rtd_theme
 # test
 BuildRequires:    python-babel
+# Runtime requirements needed during documentation build
+BuildRequires:    python-osc-lib
 
 %description      doc
 This is a client library for Gnocchi built on the Gnocchi API. It
@@ -169,7 +171,7 @@ popd
 export PATH=$PATH:%{buildroot}%{_bindir}
 export PYTHONPATH=.
 export LANG=en_US.utf8
-python setup.py build_sphinx
+python setup.py build_sphinx -b html
 
 # Fix hidden-file-or-dir warnings
 rm -rf doc/build/html/.doctrees doc/build/html/.buildinfo
