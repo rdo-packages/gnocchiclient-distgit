@@ -167,7 +167,7 @@ popd
 # Some env variables required to successfully build our doc
 export PATH=$PATH:%{buildroot}%{_bindir}
 export PYTHONPATH=.
-export LANG=en_US.utf8
+export LANG=C.utf8
 python setup.py build_sphinx -b html
 
 # Fix hidden-file-or-dir warnings
