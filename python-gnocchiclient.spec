@@ -44,6 +44,7 @@ Requires:         python-ujson
 Requires:         python-pbr
 Requires:         python-monotonic
 Requires:         python-iso8601
+Requires:         python-dateutil
 
 
 %description -n python2-%{pypi_name}
@@ -100,6 +101,7 @@ Requires:         python3-ujson
 Requires:         python3-pbr
 Requires:         python3-monotonic
 Requires:         python3-iso8601
+Requires:         python3-dateutil
 
 %description -n python3-%{pypi_name}
 %{common_desc}
