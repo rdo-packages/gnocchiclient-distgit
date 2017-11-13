@@ -67,6 +67,7 @@ BuildRequires:    python-sphinx_rtd_theme
 BuildRequires:    python-babel
 # Runtime requirements needed during documentation build
 BuildRequires:    python-osc-lib
+BuildRequires:    python-dateutil
 
 %description      doc
 %{common_desc}
