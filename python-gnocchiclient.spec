@@ -44,7 +44,7 @@ Requires:         python-ujson
 Requires:         python-pbr
 Requires:         python-monotonic
 Requires:         python-iso8601
-
+Requires:         python-dateutil
 
 %description -n python2-%{pypi_name}
 %{common_desc}
@@ -67,6 +67,7 @@ BuildRequires:    python-sphinx_rtd_theme
 BuildRequires:    python-babel
 # Runtime requirements needed during documentation build
 BuildRequires:    python-osc-lib
+BuildRequires:    python-dateutil
 
 %description      doc
 %{common_desc}
@@ -100,6 +101,7 @@ Requires:         python3-ujson
 Requires:         python3-pbr
 Requires:         python3-monotonic
 Requires:         python3-iso8601
+Requires:         python3-dateutil
 
 %description -n python3-%{pypi_name}
 %{common_desc}
