@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da86d52c_5db6db8b",
+        "filename": "python-gnocchiclient.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2017-11-14T08:54:32Z",
+      "side": 1,
+      "message": "This was added as a runtime requirement, so it should also be a Requires: for python2-gnocchiclient",
+      "revId": "f270cc10218e7f4fdf06d44575c374a87028b93d",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
