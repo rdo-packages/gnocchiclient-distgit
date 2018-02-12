@@ -30,21 +30,26 @@ Summary:          Python API and CLI for OpenStack Gnocchi
 %{?python_provide:%python_provide python2-gnocchiclient}
 
 
-BuildRequires:    python-setuptools
+BuildRequires:    python2-setuptools
 BuildRequires:    python2-devel
-BuildRequires:    python-pbr
-BuildRequires:    python-tools
+BuildRequires:    python2-pbr
+BuildRequires:    python2-tools
 
-Requires:         python-cliff >= 1.16.0
-Requires:         python-osc-lib >= 1.7.0
-Requires:         python-keystoneauth1 >= 2.0.0
-Requires:         python-six >= 1.9.0
-Requires:         python-futurist
-Requires:         python-ujson
-Requires:         python-pbr
+Requires:         python2-cliff >= 1.16.0
+Requires:         python2-osc-lib >= 1.8.0
+Requires:         python2-keystoneauth1 >= 2.0.0
+Requires:         python2-six >= 1.10.0
+Requires:         python2-futurist
+Requires:         python2-ujson
+Requires:         python2-pbr
+Requires:         python2-iso8601
+Requires:         python2-dateutil
+Requires:         python2-debtcollector
+%if 0%{?fedora} || 0%{?rhel} > 7
+Requires:         python2-monotonic
+%else
 Requires:         python-monotonic
-Requires:         python-iso8601
-Requires:         python-dateutil
+%endif
 
 %description -n python2-%{pypi_name}
 %{common_desc}
@@ -54,20 +59,20 @@ Requires:         python-dateutil
 Summary:          Documentation for OpenStack Gnocchi API Client
 Group:            Documentation
 
-BuildRequires:    python-sphinx
-BuildRequires:    python-oslo-sphinx
-BuildRequires:    python-openstack-doc-tools
-BuildRequires:    python-cliff
-BuildRequires:    python-keystoneauth1
-BuildRequires:    python-six
-BuildRequires:    python-futurist
-BuildRequires:    python-ujson
-BuildRequires:    python-sphinx_rtd_theme
+BuildRequires:    python2-sphinx
+BuildRequires:    python2-oslo-sphinx
+BuildRequires:    python2-openstack-doc-tools
+BuildRequires:    python2-cliff
+BuildRequires:    python2-keystoneauth1
+BuildRequires:    python2-six
+BuildRequires:    python2-futurist
+BuildRequires:    python2-ujson
+BuildRequires:    python2-sphinx_rtd_theme
 # test
-BuildRequires:    python-babel
+BuildRequires:    python2-babel
 # Runtime requirements needed during documentation build
-BuildRequires:    python-osc-lib
-BuildRequires:    python-dateutil
+BuildRequires:    python2-osc-lib
+BuildRequires:    python2-dateutil
 
 %description      doc
 %{common_desc}
@@ -76,7 +81,7 @@ This package contains auto-generated documentation.
 
 %package -n python2-%{pypi_name}-tests
 Summary:          Python API and CLI for OpenStack Gnocchi Tests
-Requires:         python-%{pypi_name} = %{version}-%{release}
+Requires:         python2-%{pypi_name} = %{version}-%{release}
 
 %description -n python2-%{pypi_name}-tests
 %{common_desc}
@@ -93,15 +98,16 @@ BuildRequires:    python3-setuptools
 BuildRequires:    python3-tools
 
 Requires:         python3-cliff >= 1.16.0
-Requires:         python3-osc-lib >= 1.7.0
+Requires:         python3-osc-lib >= 1.8.0
 Requires:         python3-keystoneauth1 >= 2.0.0
-Requires:         python3-six >= 1.9.0
+Requires:         python3-six >= 1.10.0
 Requires:         python3-futurist
 Requires:         python3-ujson
 Requires:         python3-pbr
 Requires:         python3-monotonic
 Requires:         python3-iso8601
 Requires:         python3-dateutil
+Requires:         python3-debtcollector
 
 %description -n python3-%{pypi_name}
 %{common_desc}
