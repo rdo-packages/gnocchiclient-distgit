@@ -21,7 +21,8 @@ Summary:          Python API and CLI for OpenStack Gnocchi
 License:          ASL 2.0
 URL:              https://github.com/openstack/%{name}
 Source0:          https://tarballs.openstack.org/%{name}/%{pypi_name}-%{upstream_version}.tar.gz
-
+# FIXME(jpena): remove this patch once a version > 7.0.1 is released
+Patch0001:        0001-Avoid-using-openstack-doc-tools.patch
 BuildArch:        noarch
 
 
@@ -61,7 +62,6 @@ Group:            Documentation
 
 BuildRequires:    python2-sphinx
 BuildRequires:    python2-oslo-sphinx
-BuildRequires:    python2-openstack-doc-tools
 BuildRequires:    python2-cliff
 BuildRequires:    python2-keystoneauth1
 BuildRequires:    python2-six
@@ -126,7 +126,7 @@ Requires:         python3-%{pypi_name} = %{version}-%{release}
 
 
 %prep
-%setup -q -n %{pypi_name}-%{upstream_version}
+%autosetup -p1 -n %{pypi_name}-%{upstream_version}
 
 %if 0%{?with_python3}
 rm -rf %{py3dir}
@@ -173,7 +173,6 @@ done
 popd
 
 # Some env variables required to successfully build our doc
-export PATH=$PATH:%{buildroot}%{_bindir}
 export PYTHONPATH=.
 export LANG=en_US.utf8
 python setup.py build_sphinx -b html
