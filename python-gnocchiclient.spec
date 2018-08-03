@@ -38,7 +38,7 @@ BuildRequires:    python2-devel
 BuildRequires:    python2-pbr
 BuildRequires:    python2-tools
 
-Requires:         python2-cliff >= 1.16.0
+Requires:         python2-cliff >= 2.10
 Requires:         python2-osc-lib >= 1.8.0
 Requires:         python2-keystoneauth1 >= 2.0.0
 Requires:         python2-six >= 1.10.0
@@ -63,8 +63,7 @@ Summary:          Documentation for OpenStack Gnocchi API Client
 Group:            Documentation
 
 BuildRequires:    python2-sphinx
-BuildRequires:    python2-oslo-sphinx
-BuildRequires:    python2-cliff
+BuildRequires:    python2-cliff >= 2.10
 BuildRequires:    python2-keystoneauth1
 BuildRequires:    python2-six
 BuildRequires:    python2-futurist
@@ -99,7 +98,7 @@ BuildRequires:    python3-pbr
 BuildRequires:    python3-setuptools
 BuildRequires:    python3-tools
 
-Requires:         python3-cliff >= 1.16.0
+Requires:         python3-cliff >= 2.10
 Requires:         python3-osc-lib >= 1.8.0
 Requires:         python3-keystoneauth1 >= 2.0.0
 Requires:         python3-six >= 1.10.0
