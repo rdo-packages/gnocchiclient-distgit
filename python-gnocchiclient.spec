@@ -176,7 +176,7 @@ popd
 # Some env variables required to successfully build our doc
 export PYTHONPATH=.
 export LANG=en_US.utf8
-python setup.py build_sphinx -b html
+%{__python2} setup.py build_sphinx -b html
 
 # Fix hidden-file-or-dir warnings
 rm -rf doc/build/html/.doctrees doc/build/html/.buildinfo
