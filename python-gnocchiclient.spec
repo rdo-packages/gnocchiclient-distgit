@@ -81,6 +81,7 @@ BuildRequires:    python%{pyver}-babel
 # Runtime requirements needed during documentation build
 BuildRequires:    python%{pyver}-osc-lib
 BuildRequires:    python%{pyver}-dateutil
+BuildRequires:    python%{pyver}-monotonic
 
 %description      doc
 %{common_desc}
