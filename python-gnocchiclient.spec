@@ -54,12 +54,7 @@ Requires:         python%{pyver}-pbr
 Requires:         python%{pyver}-iso8601
 Requires:         python%{pyver}-dateutil
 Requires:         python%{pyver}-debtcollector
-# Handle python2 exception
-%if %{pyver} == 2
-Requires:         python-monotonic
-%else
 Requires:         python%{pyver}-monotonic
-%endif
 
 %description -n python%{pyver}-%{pypi_name}
 %{common_desc}
@@ -81,6 +76,7 @@ BuildRequires:    python%{pyver}-babel
 # Runtime requirements needed during documentation build
 BuildRequires:    python%{pyver}-osc-lib
 BuildRequires:    python%{pyver}-dateutil
+BuildRequires:    python%{pyver}-monotonic
 
 %description      doc
 %{common_desc}
