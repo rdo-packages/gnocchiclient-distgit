@@ -120,7 +120,7 @@ ln -s gnocchi %{buildroot}%{_bindir}/gnocchi-%{pyver}
 # Some env variables required to successfully build our doc
 export PYTHONPATH=.
 export LANG=en_US.utf8
-%{pyver_bin} setup.py build_sphinx -b html
+sphinx-build-%{pyver} -b html doc/source doc/build/html
 
 # Fix hidden-file-or-dir warnings
 rm -rf doc/build/html/.doctrees doc/build/html/.buildinfo
