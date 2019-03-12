@@ -19,13 +19,13 @@ This is a client library for Gnocchi built on the Gnocchi API. It \
 provides a Python API (the gnocchiclient module) and a command-line tool.
 
 Name:             python-gnocchiclient
-Version:          XXX
-Release:          XXX
+Version:          7.0.4
+Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Gnocchi
 
 License:          ASL 2.0
 URL:              https://github.com/openstack/%{name}
-Source0:          https://tarballs.openstack.org/%{name}/%{pypi_name}-%{upstream_version}.tar.gz
+Source0:          https://pypi.io/packages/source/g/%{pypi_name}/%{pypi_name}-%{upstream_version}.tar.gz
 BuildArch:        noarch
 
 %description
@@ -54,12 +54,7 @@ Requires:         python%{pyver}-pbr
 Requires:         python%{pyver}-iso8601
 Requires:         python%{pyver}-dateutil
 Requires:         python%{pyver}-debtcollector
-# Handle python2 exception
-%if %{pyver} == 2
-Requires:         python-monotonic
-%else
 Requires:         python%{pyver}-monotonic
-%endif
 
 %description -n python%{pyver}-%{pypi_name}
 %{common_desc}
@@ -81,6 +76,7 @@ BuildRequires:    python%{pyver}-babel
 # Runtime requirements needed during documentation build
 BuildRequires:    python%{pyver}-osc-lib
 BuildRequires:    python%{pyver}-dateutil
+BuildRequires:    python%{pyver}-monotonic
 
 %description      doc
 %{common_desc}
@@ -142,3 +138,6 @@ rm -rf doc/build/html/.doctrees doc/build/html/.buildinfo
 %doc doc/build/html
 
 %changelog
+* Tue Mar 12 2019 RDO <dev@lists.rdoproject.org> 7.0.4-1
+- Update to 7.0.4
+
