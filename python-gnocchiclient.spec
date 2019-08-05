@@ -14,6 +14,8 @@
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
+%global with_doc 1
+
 %global common_desc \
 This is a client library for Gnocchi built on the Gnocchi API. It \
 provides a Python API (the gnocchiclient module) and a command-line tool.
@@ -60,6 +62,7 @@ Requires:         python%{pyver}-monotonic
 %{common_desc}
 
 
+%if 0%{?with_doc}
 %package -n python-%{pypi_name}-doc
 Summary:          Documentation for OpenStack Gnocchi API Client
 Group:            Documentation
@@ -82,6 +85,7 @@ BuildRequires:    python%{pyver}-monotonic
 %{common_desc}
 
 This package contains auto-generated documentation.
+%endif
 
 %package -n python%{pyver}-%{pypi_name}-tests
 Summary:          Python API and CLI for OpenStack Gnocchi Tests
@@ -113,6 +117,7 @@ rm -f {,test-}requirements.txt
 # Create a versioned binary for backwards compatibility until everything is pure py3
 ln -s gnocchi %{buildroot}%{_bindir}/gnocchi-%{pyver}
 
+%if 0%{?with_doc}
 # Some env variables required to successfully build our doc
 export PYTHONPATH=.
 export LANG=en_US.utf8
@@ -120,6 +125,7 @@ export LANG=en_US.utf8
 
 # Fix hidden-file-or-dir warnings
 rm -rf doc/build/html/.doctrees doc/build/html/.buildinfo
+%endif
 
 %files -n python%{pyver}-%{pypi_name}
 %doc README.rst
@@ -134,7 +140,9 @@ rm -rf doc/build/html/.doctrees doc/build/html/.buildinfo
 %license LICENSE
 %{pyver_sitelib}/gnocchiclient/tests
 
+%if 0%{?with_doc}
 %files -n python-%{pypi_name}-doc
 %doc doc/build/html
+%endif
 
 %changelog
