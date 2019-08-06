@@ -111,12 +111,6 @@ rm -f {,test-}requirements.txt
 %build
 %{pyver_build}
 
-%install
-%{pyver_install}
-
-# Create a versioned binary for backwards compatibility until everything is pure py3
-ln -s gnocchi %{buildroot}%{_bindir}/gnocchi-%{pyver}
-
 %if 0%{?with_doc}
 # Some env variables required to successfully build our doc
 export PYTHONPATH=.
@@ -126,6 +120,12 @@ export LANG=en_US.utf8
 # Fix hidden-file-or-dir warnings
 rm -rf doc/build/html/.doctrees doc/build/html/.buildinfo
 %endif
+
+%install
+%{pyver_install}
+
+# Create a versioned binary for backwards compatibility until everything is pure py3
+ln -s gnocchi %{buildroot}%{_bindir}/gnocchi-%{pyver}
 
 %files -n python%{pyver}-%{pypi_name}
 %doc README.rst
