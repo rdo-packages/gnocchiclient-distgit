@@ -14,7 +14,10 @@
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
-%global with_doc 1
+# NOTE(jpena): doc build fails with recent cliff versions, and hardcodes
+# a call to unversioned python in
+# https://github.com/gnocchixyz/python-gnocchiclient/blob/master/doc/source/conf.py#L54
+%global with_doc 0
 
 %global common_desc \
 This is a client library for Gnocchi built on the Gnocchi API. It \
