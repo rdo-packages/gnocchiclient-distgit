@@ -1,14 +1,3 @@
-# Macros for py2/py3 compatibility
-%if 0%{?fedora} || 0%{?rhel} > 7
-%global pyver %{python3_pkgversion}
-%else
-%global pyver 2
-%endif
-%global pyver_bin python%{pyver}
-%global pyver_sitelib %python%{pyver}_sitelib
-%global pyver_install %py%{pyver}_install
-%global pyver_build %py%{pyver}_build
-# End of macros for py2/py3 compatibility
 
 %global pypi_name gnocchiclient
 
@@ -36,32 +25,29 @@ BuildArch:        noarch
 %description
 %{common_desc}
 
-%package -n python%{pyver}-%{pypi_name}
+%package -n python3-%{pypi_name}
 Summary:          Python API and CLI for OpenStack Gnocchi
-%{?python_provide:%python_provide python%{pyver}-gnocchiclient}
-%if %{pyver} == 3
+%{?python_provide:%python_provide python3-gnocchiclient}
 Obsoletes: python2-%{pypi_name} < %{version}-%{release}
-%endif
 
 
-BuildRequires:    python%{pyver}-setuptools
-BuildRequires:    python%{pyver}-devel
-BuildRequires:    python%{pyver}-pbr
-BuildRequires:    python%{pyver}-tools
+BuildRequires:    python3-setuptools
+BuildRequires:    python3-devel
+BuildRequires:    python3-pbr
+BuildRequires:    python3-tools
 
-Requires:         python%{pyver}-cliff >= 2.10
-Requires:         python%{pyver}-osc-lib >= 1.8.0
-Requires:         python%{pyver}-keystoneauth1 >= 2.0.0
-Requires:         python%{pyver}-six >= 1.10.0
-Requires:         python%{pyver}-futurist
-Requires:         python%{pyver}-ujson
-Requires:         python%{pyver}-pbr
-Requires:         python%{pyver}-iso8601
-Requires:         python%{pyver}-dateutil
-Requires:         python%{pyver}-debtcollector
-Requires:         python%{pyver}-monotonic
+Requires:         python3-cliff >= 2.10
+Requires:         python3-keystoneauth1 >= 2.0.0
+Requires:         python3-six >= 1.10.0
+Requires:         python3-futurist
+Requires:         python3-ujson
+Requires:         python3-pbr
+Requires:         python3-iso8601
+Requires:         python3-dateutil
+Requires:         python3-debtcollector
+Requires:         python3-monotonic
 
-%description -n python%{pyver}-%{pypi_name}
+%description -n python3-%{pypi_name}
 %{common_desc}
 
 
@@ -70,19 +56,18 @@ Requires:         python%{pyver}-monotonic
 Summary:          Documentation for OpenStack Gnocchi API Client
 Group:            Documentation
 
-BuildRequires:    python%{pyver}-sphinx
-BuildRequires:    python%{pyver}-cliff >= 2.10
-BuildRequires:    python%{pyver}-keystoneauth1
-BuildRequires:    python%{pyver}-six
-BuildRequires:    python%{pyver}-futurist
-BuildRequires:    python%{pyver}-ujson
-BuildRequires:    python%{pyver}-sphinx_rtd_theme
+BuildRequires:    python3-sphinx
+BuildRequires:    python3-cliff >= 2.10
+BuildRequires:    python3-keystoneauth1
+BuildRequires:    python3-six
+BuildRequires:    python3-futurist
+BuildRequires:    python3-ujson
+BuildRequires:    python3-sphinx_rtd_theme
 # test
-BuildRequires:    python%{pyver}-babel
+BuildRequires:    python3-babel
 # Runtime requirements needed during documentation build
-BuildRequires:    python%{pyver}-osc-lib
-BuildRequires:    python%{pyver}-dateutil
-BuildRequires:    python%{pyver}-monotonic
+BuildRequires:    python3-dateutil
+BuildRequires:    python3-monotonic
 
 %description      doc
 %{common_desc}
@@ -90,20 +75,18 @@ BuildRequires:    python%{pyver}-monotonic
 This package contains auto-generated documentation.
 %endif
 
-%package -n python%{pyver}-%{pypi_name}-tests
+%package -n python3-%{pypi_name}-tests
 Summary:          Python API and CLI for OpenStack Gnocchi Tests
-Requires:         python%{pyver}-%{pypi_name} = %{version}-%{release}
+Requires:         python3-%{pypi_name} = %{version}-%{release}
 
-%description -n python%{pyver}-%{pypi_name}-tests
+%description -n python3-%{pypi_name}-tests
 %{common_desc}
 
 
 %prep
 %autosetup -n %{pypi_name}-%{upstream_version}
 
-%if %{pyver} == 3
 2to3 --write --nobackups .
-%endif
 
 # Remove bundled egg-info
 rm -rf gnocchiclient.egg-info
@@ -112,36 +95,36 @@ rm -rf gnocchiclient.egg-info
 rm -f {,test-}requirements.txt
 
 %build
-%{pyver_build}
+%{py3_build}
 
 %if 0%{?with_doc}
 # Some env variables required to successfully build our doc
 export PYTHONPATH=.
 export LANG=en_US.utf8
-%{pyver_bin} setup.py build_sphinx -b html
+%{__python3} setup.py build_sphinx -b html
 
 # Fix hidden-file-or-dir warnings
 rm -rf doc/build/html/.doctrees doc/build/html/.buildinfo
 %endif
 
 %install
-%{pyver_install}
+%{py3_install}
 
 # Create a versioned binary for backwards compatibility until everything is pure py3
-ln -s gnocchi %{buildroot}%{_bindir}/gnocchi-%{pyver}
+ln -s gnocchi %{buildroot}%{_bindir}/gnocchi-3
 
-%files -n python%{pyver}-%{pypi_name}
+%files -n python3-%{pypi_name}
 %doc README.rst
 %license LICENSE
 %{_bindir}/gnocchi
-%{_bindir}/gnocchi-%{pyver}
-%{pyver_sitelib}/gnocchiclient
-%{pyver_sitelib}/*.egg-info
-%exclude %{pyver_sitelib}/gnocchiclient/tests
+%{_bindir}/gnocchi-3
+%{python3_sitelib}/gnocchiclient
+%{python3_sitelib}/*.egg-info
+%exclude %{python3_sitelib}/gnocchiclient/tests
 
-%files -n python%{pyver}-%{pypi_name}-tests
+%files -n python3-%{pypi_name}-tests
 %license LICENSE
-%{pyver_sitelib}/gnocchiclient/tests
+%{python3_sitelib}/gnocchiclient/tests
 
 %if 0%{?with_doc}
 %files -n python-%{pypi_name}-doc
