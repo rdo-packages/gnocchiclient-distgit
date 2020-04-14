@@ -39,9 +39,7 @@ BuildArch:        noarch
 %package -n python%{pyver}-%{pypi_name}
 Summary:          Python API and CLI for OpenStack Gnocchi
 %{?python_provide:%python_provide python%{pyver}-gnocchiclient}
-%if %{pyver} == 3
 Obsoletes: python2-%{pypi_name} < %{version}-%{release}
-%endif
 
 
 BuildRequires:    python%{pyver}-setuptools
@@ -50,7 +48,6 @@ BuildRequires:    python%{pyver}-pbr
 BuildRequires:    python%{pyver}-tools
 
 Requires:         python%{pyver}-cliff >= 2.10
-Requires:         python%{pyver}-osc-lib >= 1.8.0
 Requires:         python%{pyver}-keystoneauth1 >= 2.0.0
 Requires:         python%{pyver}-six >= 1.10.0
 Requires:         python%{pyver}-futurist
@@ -80,7 +77,6 @@ BuildRequires:    python%{pyver}-sphinx_rtd_theme
 # test
 BuildRequires:    python%{pyver}-babel
 # Runtime requirements needed during documentation build
-BuildRequires:    python%{pyver}-osc-lib
 BuildRequires:    python%{pyver}-dateutil
 BuildRequires:    python%{pyver}-monotonic
 
@@ -101,9 +97,7 @@ Requires:         python%{pyver}-%{pypi_name} = %{version}-%{release}
 %prep
 %autosetup -n %{pypi_name}-%{upstream_version}
 
-%if %{pyver} == 3
 2to3 --write --nobackups .
-%endif
 
 # Remove bundled egg-info
 rm -rf gnocchiclient.egg-info
