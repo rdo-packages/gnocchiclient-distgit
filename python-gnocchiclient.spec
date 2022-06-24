@@ -1,5 +1,6 @@
-%{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+# gnocchiclient is not longer part of openstack so packages are not signed with openstack keys
+%global sources_gpg 0
+%global sources_gpg_sign 0xa63ea142678138d1bb15f2e303bdfd64dd164087
 
 %global pypi_name gnocchiclient
 
@@ -15,13 +16,14 @@ This is a client library for Gnocchi built on the Gnocchi API. It \
 provides a Python API (the gnocchiclient module) and a command-line tool.
 
 Name:             python-gnocchiclient
-Version:          XXX
-Release:          XXX
+Version:          7.0.7
+Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Gnocchi
 
 License:          ASL 2.0
 URL:              https://github.com/openstack/%{name}
-Source0:          https://tarballs.openstack.org/%{name}/%{pypi_name}-%{upstream_version}.tar.gz
+Source0:          https://pypi.io/packages/source/g/%{pypi_name}/%{pypi_name}-%{upstream_version}.tar.gz
+
 # Required for tarball sources verification
 %if 0%{?sources_gpg} == 1
 Source101:        https://tarballs.openstack.org/%{name}/%{pypi_name}-%{upstream_version}.tar.gz.asc
@@ -149,3 +151,6 @@ ln -s gnocchi %{buildroot}%{_bindir}/gnocchi-3
 %endif
 
 %changelog
+* Fri Jun 24 2022 RDO <dev@lists.rdoproject.org> 7.0.7-1
+- Update to 7.0.7
+
