@@ -12,8 +12,8 @@ This is a client library for Gnocchi built on the Gnocchi API. It \
 provides a Python API (the gnocchiclient module) and a command-line tool.
 
 Name:             python-gnocchiclient
-Version:          7.0.4
-Release:          2%{?dist}
+Version:          7.0.7
+Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Gnocchi
 
 License:          ASL 2.0
@@ -131,6 +131,9 @@ ln -s gnocchi %{buildroot}%{_bindir}/gnocchi-3
 %endif
 
 %changelog
+* Thu Jul 14 2022 RDO <dev@lists.rdoproject.org> 7.0.7-1
+- Update to 7.0.7
+
 * Thu Feb 24 2022 Jose Castro Leon <jose.castro.leon@cern.ch> 7.0.4-2
 - Use pypi as source of the package
 - Remove gpg signature
