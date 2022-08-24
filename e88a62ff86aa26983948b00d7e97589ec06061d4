@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1ef46d7_a1706748",
+        "filename": "python-gnocchiclient.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2022-08-24T13:15:35Z",
+      "side": 1,
+      "message": "we can remove this too",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 14
+      },
+      "revId": "e88a62ff86aa26983948b00d7e97589ec06061d4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ba2b890_4fccf7f4",
+        "filename": "python-gnocchiclient.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2022-08-24T13:15:35Z",
+      "side": 1,
+      "message": "We can remove all %file section",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 16
+      },
+      "revId": "e88a62ff86aa26983948b00d7e97589ec06061d4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
