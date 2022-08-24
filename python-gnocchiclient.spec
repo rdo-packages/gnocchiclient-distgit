@@ -88,14 +88,6 @@ BuildRequires:    python3-monotonic
 This package contains auto-generated documentation.
 %endif
 
-%package -n python3-%{pypi_name}-tests
-Summary:          Python API and CLI for OpenStack Gnocchi Tests
-Requires:         python3-%{pypi_name} = %{version}-%{release}
-
-%description -n python3-%{pypi_name}-tests
-%{common_desc}
-
-
 %prep
 # Required for tarball sources verification
 %if 0%{?sources_gpg} == 1
@@ -137,11 +129,6 @@ ln -s gnocchi %{buildroot}%{_bindir}/gnocchi-3
 %{_bindir}/gnocchi-3
 %{python3_sitelib}/gnocchiclient
 %{python3_sitelib}/*.egg-info
-%exclude %{python3_sitelib}/gnocchiclient/tests
-
-%files -n python3-%{pypi_name}-tests
-%license LICENSE
-%{python3_sitelib}/gnocchiclient/tests
 
 %if 0%{?with_doc}
 %files -n python-%{pypi_name}-doc
