@@ -137,11 +137,9 @@ ln -s gnocchi %{buildroot}%{_bindir}/gnocchi-3
 %{_bindir}/gnocchi-3
 %{python3_sitelib}/gnocchiclient
 %{python3_sitelib}/*.egg-info
-%exclude %{python3_sitelib}/gnocchiclient/tests
 
 %files -n python3-%{pypi_name}-tests
 %license LICENSE
-%{python3_sitelib}/gnocchiclient/tests
 
 %if 0%{?with_doc}
 %files -n python-%{pypi_name}-doc
