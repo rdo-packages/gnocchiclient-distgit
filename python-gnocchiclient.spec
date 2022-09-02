@@ -46,7 +46,6 @@ Obsoletes: python2-%{pypi_name} < %{version}-%{release}
 
 BuildRequires:    python3-setuptools
 BuildRequires:    python3-devel
-BuildRequires:    python3-pbr
 BuildRequires:    python3-tools
 
 Requires:         python3-cliff >= 2.10
@@ -54,7 +53,6 @@ Requires:         python3-keystoneauth1 >= 2.0.0
 Requires:         python3-six >= 1.10.0
 Requires:         python3-futurist
 Requires:         python3-ujson
-Requires:         python3-pbr
 Requires:         python3-iso8601
 Requires:         python3-dateutil
 Requires:         python3-debtcollector
