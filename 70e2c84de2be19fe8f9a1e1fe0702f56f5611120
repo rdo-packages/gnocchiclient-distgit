@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f49c223c_c9957df3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2022-11-29T09:20:52Z",
+      "side": 1,
+      "message": "For the record we were missleaded by rdopkg reqcheck as by default it compares with master and we are building 7.0.7. For this kind of \"special\" projects which doesn\u0027t follow standard we should use:\n\nrdopkg reqcheck -R 7.0.7 (or whatever version)\n\nLet\u0027s adapt the reqcheck process for future releases",
+      "revId": "70e2c84de2be19fe8f9a1e1fe0702f56f5611120",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
