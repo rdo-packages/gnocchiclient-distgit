@@ -4,6 +4,12 @@
 %global pypi_name gnocchiclient
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+# we are excluding some BRs from automatic generator
+%global excluded_brs doc8 bandit pre-commit hacking flake8-import-order
+# Exclude sphinx from BRs if docs are disabled
+%if ! 0%{?with_doc}
+%global excluded_brs %{excluded_brs} sphinx openstackdocstheme
+%endif
 
 # NOTE(jpena): doc build fails with recent cliff versions, and hardcodes
 # a call to unversioned python in
@@ -19,7 +25,7 @@ Version:          XXX
 Release:          XXX
 Summary:          Python API and CLI for OpenStack Gnocchi
 
-License:          ASL 2.0
+License:          Apache-2.0
 URL:              https://github.com/openstack/%{name}
 Source0:          https://tarballs.openstack.org/%{name}/%{pypi_name}-%{upstream_version}.tar.gz
 # Required for tarball sources verification
@@ -40,26 +46,11 @@ BuildRequires:  openstack-macros
 
 %package -n python3-%{pypi_name}
 Summary:          Python API and CLI for OpenStack Gnocchi
-%{?python_provide:%python_provide python3-gnocchiclient}
 Obsoletes: python2-%{pypi_name} < %{version}-%{release}
 
 
-BuildRequires:    python3-setuptools
 BuildRequires:    python3-devel
-BuildRequires:    python3-pbr
-BuildRequires:    python3-tools
-
-Requires:         python3-cliff >= 2.10
-Requires:         python3-keystoneauth1 >= 2.0.0
-Requires:         python3-six >= 1.10.0
-Requires:         python3-futurist
-Requires:         python3-ujson
-Requires:         python3-pbr
-Requires:         python3-iso8601
-Requires:         python3-dateutil
-Requires:         python3-debtcollector
-Requires:         python3-monotonic
-
+BuildRequires:    pyproject-rpm-macros
 %description -n python3-%{pypi_name}
 %{common_desc}
 
@@ -68,19 +59,6 @@ Requires:         python3-monotonic
 %package -n python-%{pypi_name}-doc
 Summary:          Documentation for OpenStack Gnocchi API Client
 Group:            Documentation
-
-BuildRequires:    python3-sphinx
-BuildRequires:    python3-cliff >= 2.10
-BuildRequires:    python3-keystoneauth1
-BuildRequires:    python3-six
-BuildRequires:    python3-futurist
-BuildRequires:    python3-ujson
-BuildRequires:    python3-sphinx_rtd_theme
-# test
-BuildRequires:    python3-babel
-# Runtime requirements needed during documentation build
-BuildRequires:    python3-dateutil
-BuildRequires:    python3-monotonic
 
 %description      doc
 %{common_desc}
@@ -97,27 +75,42 @@ This package contains auto-generated documentation.
 
 2to3 --write --nobackups .
 
-# Remove bundled egg-info
-rm -rf gnocchiclient.egg-info
 
-# Let RPM handle the requirements
-rm -f {,test-}requirements.txt
+
+sed -i /^[[:space:]]*-c{env:.*_CONSTRAINTS_FILE.*/d tox.ini
+sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
+sed -i /^minversion.*/d tox.ini
+sed -i /^requires.*virtualenv.*/d tox.ini
+
+# Exclude some bad-known BRs
+for pkg in %{excluded_brs}; do
+  for reqfile in doc/requirements.txt test-requirements.txt; do
+    if [ -f $reqfile ]; then
+      sed -i /^${pkg}.*/d $reqfile
+    fi
+  done
+done
+
+# Automatic BR generation
+%generate_buildrequires
+%if 0%{?with_doc}
+  %pyproject_buildrequires -t -e %{default_toxenv},docs
+%else
+  %pyproject_buildrequires -t -e %{default_toxenv}
+%endif
 
 %build
-%{py3_build}
+%pyproject_wheel
 
 %if 0%{?with_doc}
-# Some env variables required to successfully build our doc
-export PYTHONPATH=.
-export LANG=en_US.utf8
-%{__python3} setup.py build_sphinx -b html
+%tox -e docs
 
 # Fix hidden-file-or-dir warnings
 rm -rf doc/build/html/.doctrees doc/build/html/.buildinfo
 %endif
 
 %install
-%{py3_install}
+%pyproject_install
 
 # Create a versioned binary for backwards compatibility until everything is pure py3
 ln -s gnocchi %{buildroot}%{_bindir}/gnocchi-3
@@ -128,7 +121,7 @@ ln -s gnocchi %{buildroot}%{_bindir}/gnocchi-3
 %{_bindir}/gnocchi
 %{_bindir}/gnocchi-3
 %{python3_sitelib}/gnocchiclient
-%{python3_sitelib}/*.egg-info
+%{python3_sitelib}/*.dist-info
 
 %if 0%{?with_doc}
 %files -n python-%{pypi_name}-doc
