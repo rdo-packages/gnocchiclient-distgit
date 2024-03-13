@@ -131,3 +131,4 @@ ln -s gnocchi %{buildroot}%{_bindir}/gnocchi-3
 %endif
 
 %changelog
+# REMOVEME: error caused by commit https://github.com/gnocchixyz/python-gnocchiclient/commit/0bda6ce162b58a69779f09b63c4a5814888c3ebe
