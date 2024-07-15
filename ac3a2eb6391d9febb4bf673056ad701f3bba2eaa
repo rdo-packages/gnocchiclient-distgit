@@ -1,0 +1,8 @@
+Workflow+1: Karolina Kula <kkula@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Code-Review+2: Karolina Kula <kkula@redhat.com>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Mon, 15 Jul 2024 09:43:58 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/gnocchiclient-distgit/+/53807
+Project: openstack/gnocchiclient-distgit
+Branch: refs/heads/rpm-master
