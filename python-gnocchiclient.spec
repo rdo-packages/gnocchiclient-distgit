@@ -72,9 +72,6 @@ This package contains auto-generated documentation.
 %endif
 %autosetup -n %{pypi_name}-%{upstream_version}
 
-2to3 --write --nobackups .
-
-
 
 sed -i /^[[:space:]]*-c{env:.*_CONSTRAINTS_FILE.*/d tox.ini
 sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
