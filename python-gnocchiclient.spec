@@ -21,8 +21,8 @@ This is a client library for Gnocchi built on the Gnocchi API. It \
 provides a Python API (the gnocchiclient module) and a command-line tool.
 
 Name:             python-gnocchiclient
-Version:          XXX
-Release:          XXX
+Version:          7.1.0
+Release:          1%{?dist}
 Summary:          Python API and CLI for OpenStack Gnocchi
 
 License:          Apache-2.0
@@ -128,3 +128,6 @@ ln -s gnocchi %{buildroot}%{_bindir}/gnocchi-3
 %endif
 
 %changelog
+* Wed Sep 18 2024 RDO <dev@lists.rdoproject.org> 7.1.0-1
+- Update to 7.1.0
+
