@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf6ecb36_85b3d815",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2024-09-18T15:47:46Z",
+      "side": 1,
+      "message": "See https://review.rdoproject.org/r/c/openstack/gnocchiclient-distgit/+/52251/1/python-gnocchiclient.spec there is no gpg key for this package (it\u0027s not a openstack repo actually).",
+      "revId": "12f66135da31fe00f18a7c85084275fc7fc7b759",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
